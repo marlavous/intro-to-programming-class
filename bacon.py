@@ -7,20 +7,21 @@ def main():
 	choice = str(raw_input())
 
 	if choice == "yes":
-		print eat 
+		eat()
 
 	elif choice == "no":
 		print "You've clearly never tasted bacon"
-		print eat
+		eat()
 
 	elif choice == "yes, but I'm afraid bacon will kill me":
 		print "are you a coward?"
+		choice = str(raw_input())
 
 		if choice == "yes":
 			print "bacon will turn you into a true warrior"
 
 		elif choice == "I am not!":
-			print "then" + eat
+			print "then" + eat()
 
 
 

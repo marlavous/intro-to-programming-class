@@ -1,8 +1,9 @@
-shoppinglist =["apples", "cheese", "catfood"]
+shoppinglist = ["apples", "cheese", "catfood"]
 
 
 def additem(item):
-	if item.lower != shoppinglist:
+	item = item.lower()
+	if item != shoppinglist:
 		shoppinglist.append(item)
 		shoppinglist.sort()
 		print "%s has been added to your shopping list" % (item)
@@ -13,7 +14,8 @@ def additem(item):
 	return shoppinglist
 
 def removeitem(item):
-	if item.lower == shoppinglist:
+	item = item.lower()
+	if item == shoppinglist:
 		shoppinglist.remove(item)
 		shoppinglist.sort()
 		print "%s has been removed from your shopping list" % (item)
@@ -21,36 +23,35 @@ def removeitem(item):
 	else:
 		print "%s was never on the list" % (item)
 
+def menu():
+	print "0 - Main Menu"
+	print "1 - Show current list."
+	print "2 - Add an item to your shopping list."
+	print "3 - Remove an item from your shopping list."
+	print "4 - To exit the program."
+	choice = raw_input("Choose an option")
+	return choice
 
 def main():
-	print "Lets make a shopping list!"
-	print "Would you like to add something?"
+	choice = menu()
 
-	print additem ("bread")
-	print additem ("meat")
-	print additem ("apples")
-	print shoppinglist
-	print removeitem ("apples")
+	while True:
+		if choice == 0:
+			choice = menu()
 
-	# choice = str(raw_input())
+		elif choice == 1:
+			print shoppinglist.sort()
 
-	# if choice == "yes":
-	# 	print "What would you like to add?"
-	# 	item = str(raw_input())
-	# 	return additem(shoppinglist)
-	# 	print shoppinglist
+		elif choice == 2:
+			item = raw_input("Enter the item you want to add")
+			print additem(shoppinglist)
 
-	# elif choice == "no":
-	# 	print "Would you like to remove something from your shopping list?"
-	# 	choice == str(raw_input())
+		elif choice == 3:
+			item == raw_input("Which item would you like to remove?")
+			print removeitem(shoppinglist)
 
-	# 	if choice == "yes":
-	# 		print "what would you like to remove?"
-	# 		item = str(raw_input())
-	# 		return removeitem()
-	# 		print shoppinglist
-
-	
+		elif choice == 4:
+			break
 
 if __name__ == '__main__':
 	main()
